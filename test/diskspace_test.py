@@ -34,3 +34,15 @@ class BytesToReadableTest(unittest.TestCase):
         blocks = 0
         size = diskspace.bytes_to_readable(blocks)
         self.assertEqual('0.00B', size)
+
+
+class SubprocessCheckOutputTest(unittest.TestCase):
+    def test_display_correct_output_for_command(self):
+        command = 'echo test'
+        output = diskspace.subprocess_check_output(command)
+        self.assertEqual('test\n', output)
+
+    def test_raises_error_for_invalid_command(self):
+        command = '1'
+        with self.assertRaises(OSError):
+            output = diskspace.subprocess_check_output(command)

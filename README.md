@@ -33,3 +33,8 @@ optional arguments:
                         Specifies the folder maximum depth to be analyzed
   -t, --tree-view       Display the result in a tree mode
 ```
+
+Testing
+=====
+To run the tests, in the root directory:
+  python -m unittest test.diskspace_test
